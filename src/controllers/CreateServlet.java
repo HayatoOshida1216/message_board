@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,6 +58,8 @@ public class CreateServlet extends HttpServlet {
                 request.setAttribute("_token", request.getSession().getId());
                 request.setAttribute("message", m);
                 request.setAttribute("errors", errors);
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+                rd.forward(request, response);
 
             }
             else {
